@@ -155,6 +155,8 @@ Select2.prototype = {
             var contentTypeId = $select.data('content-type-id');
             var appLabel = $select.data('app-label');
             var model = $select.data('model');
+            var fieldName = $select.data('field-name');
+            var fieldModel = $select.data('field-model');
             var objectId = $select.data('object-id');
             var pageSize = 100;
 
@@ -164,11 +166,13 @@ Select2.prototype = {
                     return {
                         content_type: contentTypeId,
                         app_label: appLabel,
+                        field_name: fieldName,
+                        field_model: fieldModel,
                         model: model,
                         q: params.term,
                         page: params.page,
                         page_size: pageSize,
-                        object_id: objectId
+                        object_id: objectId,
                     };
                 },
                 processResults: function (data, params) {

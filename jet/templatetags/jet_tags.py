@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
+
 import json
 import os
+
 from django import template
 try:
     from django.core.urlresolvers import reverse
@@ -75,7 +77,9 @@ def jet_select2_lookups(field):
                 'class': 'ajax',
                 'data-app-label': app_label,
                 'data-model': model_name,
-                'data-ajax--url': reverse('jet:model_lookup')
+                'data-field-name': field.name,
+                'data-field-model': field.form.Meta.model._meta.label,
+                'data-ajax--url': reverse('jet:model_lookup'),
             }
 
             initial_value = field.value()

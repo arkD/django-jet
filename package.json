@@ -10,7 +10,7 @@
     "gulp-concat-css": "2.3.0",
     "gulp-postcss": "6.1.1",
     "gulp-replace": "0.5.4",
-    "gulp-sass": "2.3.2",
+    "gulp-sass": "4.1.0",
     "gulp-shell": "0.5.2",
     "gulp-sourcemaps": "1.6.0",
     "gulp-uglify": "1.5.4",
@@ -23,7 +23,7 @@
     "postcss-pxtorem": "3.3.1",
     "select2": "4.0.0",
     "timepicker": "git://github.com/geex-arts/timepicker",
-    "vinyl-buffer": "1.0.0",
+    "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "1.1.0"
   }
 }

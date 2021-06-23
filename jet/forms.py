@@ -1,4 +1,5 @@
 import json
+
 from django import forms
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
@@ -96,6 +97,8 @@ class ToggleApplicationPinForm(forms.ModelForm):
 class ModelLookupForm(forms.Form):
     app_label = forms.CharField()
     model = forms.CharField()
+    field_name = forms.CharField(required=False)
+    field_model = forms.CharField(required=False)
     q = forms.CharField(required=False)
     page = forms.IntegerField(required=False)
     page_size = forms.IntegerField(required=False, min_value=1, max_value=1000)
@@ -135,7 +138,8 @@ class ModelLookupForm(forms.Form):
             qs = qs.prefetch_related(*self.model_cls.autocomplete_prefetch_related_fields())
 
         if getattr(self.model_cls, 'autocomplete_queryset_filters', None):
-            filters = self.model_cls.autocomplete_queryset_filters()
+            filters = self.model_cls.autocomplete_queryset_filters(self.cleaned_data['field_model'],
+                                                                   self.cleaned_data['field_name'])
             qs = qs.filter(**filters)
 
         if self.cleaned_data['q']:
