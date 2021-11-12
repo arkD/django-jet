@@ -156,7 +156,7 @@ Select2.prototype = {
             var appLabel = $select.data('app-label');
             var fieldName = $select.data('field-name');
             var fieldModel = $select.data('field-model');
-            var objectId = $select.data('object-id');
+            var objectId = $select.data('object-id'); // the id of the current value of the select
             var model = $select.data('model');
             var pageSize = 100;
 
