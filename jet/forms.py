@@ -139,7 +139,8 @@ class ModelLookupForm(forms.Form):
 
         if getattr(self.model_cls, 'autocomplete_queryset_filters', None):
             filters = self.model_cls.autocomplete_queryset_filters(self.cleaned_data['field_model'],
-                                                                   self.cleaned_data['field_name'])
+                                                                   self.cleaned_data['field_name'],
+                                                                   self.request.GET.get('object_id', ''))
             qs = qs.filter(**filters)
 
         if self.cleaned_data['q']:
