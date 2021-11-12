@@ -154,10 +154,10 @@ Select2.prototype = {
         if ($select.hasClass('ajax')) {
             var contentTypeId = $select.data('content-type-id');
             var appLabel = $select.data('app-label');
-            var model = $select.data('model');
             var fieldName = $select.data('field-name');
             var fieldModel = $select.data('field-model');
             var objectId = $select.data('object-id');
+            var model = $select.data('model');
             var pageSize = 100;
 
             settings['ajax'] = {
@@ -168,11 +168,11 @@ Select2.prototype = {
                         app_label: appLabel,
                         field_name: fieldName,
                         field_model: fieldModel,
+                        object_id: objectId,
                         model: model,
                         q: params.term,
                         page: params.page,
                         page_size: pageSize,
-                        object_id: objectId,
                     };
                 },
                 processResults: function (data, params) {
