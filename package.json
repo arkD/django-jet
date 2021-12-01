@@ -25,5 +25,11 @@
     "timepicker": "git://github.com/geex-arts/timepicker",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "1.1.0"
+  },
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions"
+  },
+  "resolutions": {
+    "graceful-fs": "^4.2.4"
   }
 }
