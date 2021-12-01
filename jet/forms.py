@@ -139,20 +139,9 @@ class ModelLookupForm(forms.Form):
             qs = qs.prefetch_related(*self.model_cls.autocomplete_prefetch_related_fields())
 
         if getattr(self.model_cls, 'autocomplete_queryset_filters', None):
-            source_object_id = 0  # false, not a model object
-            try:
-                referer_parts = self.request.META.get('HTTP_REFERER', '').split('/')
-                model_name = self.cleaned_data['field_model'].split('.')[1].lower()
-                field_model_index = [idx for idx, s in enumerate(referer_parts) if s == model_name][0]
-                source_id = referer_parts[field_model_index + 1]
-                if source_id.isdecimal():
-                    source_object_id = int(source_id)
-            except IndexError:
-                pass
-
             filters = self.model_cls.autocomplete_queryset_filters(self.cleaned_data['field_model'],
                                                                    self.cleaned_data['field_name'],
-                                                                   source_object_id)
+                                                                   self.cleaned_data['field_id'])
             qs = qs.filter(**filters)
 
         if self.cleaned_data['q']:
