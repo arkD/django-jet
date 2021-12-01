@@ -156,6 +156,7 @@ Select2.prototype = {
             var appLabel = $select.data('app-label');
             var fieldName = $select.data('field-name');
             var fieldModel = $select.data('field-model');
+            var fieldId = $select.data('field-id');
             var objectId = $select.data('object-id'); // the id of the current value of the select
             var model = $select.data('model');
             var pageSize = 100;
@@ -168,6 +169,7 @@ Select2.prototype = {
                         app_label: appLabel,
                         field_name: fieldName,
                         field_model: fieldModel,
+                        field_id: fieldId,
                         object_id: objectId,
                         model: model,
                         q: params.term,

@@ -79,6 +79,7 @@ def jet_select2_lookups(field):
                 'data-model': model_name,
                 'data-field-name': field.name,
                 'data-field-model': field.form.Meta.model._meta.label,
+                'data-field-id': field.form.instance.id,
                 'data-ajax--url': reverse('jet:model_lookup'),
             }
 
