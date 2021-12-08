@@ -96,6 +96,7 @@ RelatedPopups.prototype = {
         $('.related-popup-back').on('click', function(e) {
             e.preventDefault();
             self.closePopup();
+            location.reload();
         });
     },
     showPopup: function($input, href) {

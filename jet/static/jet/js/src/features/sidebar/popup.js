@@ -77,7 +77,6 @@ SideBarPopup.prototype = {
             if (!$(document.documentElement).hasClass('touchevents')) {
                 $(document.body).removeClass('non-scrollable');
             }
-            location.reload();
         }, delay);
     },
     onSectionLinkInteracted: function($popupContainer, $link) {
